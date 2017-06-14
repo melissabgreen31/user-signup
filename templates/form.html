@@ -7,23 +7,25 @@
         
         <label for="user-signup">
         Username:
-            <input type="text" name="username" />
-            <id="error">
+            <input type="text" name="username" value = '{{username}}'/>
+            <id="error">{{username_error}}
             <br>
         Password:
-            <input type="text" name="password"/> <id="error"/>
+            <input type="text" name="password"/> <id="error"/>{{password_error}}
             
             <br>
         Verify Password:
             <input type="text" name="confirmation"  />
-            <id="error">
+            <id="error">{{confirmation_error}}
             <br>
         Email(optional):
-            <input type="text" name="email" />
-            <id="error">
+            <input type="text" name="email" value = '{{email}}'/>
+            <id="error">{{email_error}}
             <br>
             <input type="submit" value ="Submit"/>
         </label>
         
         </form>
+    
+
         

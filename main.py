@@ -10,35 +10,6 @@ jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), a
 app = Flask(__name__)
 app.config['DEBUG']=True
 
-form= """
-<style>
-    
-</style>
-<h1>Signup</h1>
-        <form action ="/validate_info" method="post">
-        
-        <label for="user-signup">
-        Username:
-            <input type="text" name="username" value = '{username}'/>
-            <id="error">{username_error}
-            <br>
-        Password:
-            <input type="text" name="password"/> <id="error"/>{password_error}
-            
-            <br>
-        Verify Password:
-            <input type="text" name="confirmation"  />
-            <id="error">{confirmation_error}
-            <br>
-        Email(optional):
-            <input type="text" name="email" value = '{email}'/>
-            <id="error">{email_error}
-            <br>
-            <input type="submit" value ="Submit"/>
-        </label>
-        
-        </form>
-        """
 
 
 @app.route("/")
@@ -48,6 +19,7 @@ def index():
 
 @app.route('/validate_info', methods= ['POST'])
 def find_errors():
+    template = jinja_env.get_template('form.html')
     username = request.form['username']
     password = request.form['password']
     confirmation = request.form['confirmation']
@@ -76,8 +48,8 @@ def find_errors():
         
 
     if not username_error and not password_error and not confirmation_error and not email_error:
-        
-        return redirect('/welcome')
+        username = request.form['username']
+        return redirect('/welcome?username={0}'.format(username))
     else:
         return form.format(username_error = username_error, password_error = password_error, confirmation_error = confirmation_error, email_error = email_error, username= username, email= email)
 
