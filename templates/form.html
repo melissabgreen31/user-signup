@@ -1,31 +1,33 @@
 
-<style>
-    
-</style>
+<head> 
+            <link type="text/css" rel="stylesheet" href="styles.css"/>
+            
+        </head>
+        <body>
 <h1>Signup</h1>
         <form action ="/validate_info" method="post">
         
         <label for="user-signup">
-        Username:
+        <p>Username:
             <input type="text" name="username" value = '{{username}}'/>
-            <id="error">{{username_error}}
-            <br>
-        Password:
-            <input type="text" name="password"/> <id="error"/>{{password_error}}
+            <id="error">{{username_error}}</p>
             
-            <br>
-        Verify Password:
+         <p>Password:
+            <input type="text" name="password"/> <id="error"/>{{password_error}}</p>
+            
+            
+        <p>Verify Password:
             <input type="text" name="confirmation"  />
-            <id="error">{{confirmation_error}}
-            <br>
-        Email(optional):
+            <id="error">{{confirmation_error}}</p>
+            
+        <p>Email(optional):
             <input type="text" name="email" value = '{{email}}'/>
-            <id="error">{{email_error}}
-            <br>
+            <id="error">{{email_error}}</p>
+            
             <input type="submit" value ="Submit"/>
         </label>
         
         </form>
-    
+    </body>
 
         

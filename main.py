@@ -51,7 +51,7 @@ def find_errors():
         username = request.form['username']
         return redirect('/welcome?username={0}'.format(username))
     else:
-        return form.format(username_error = username_error, password_error = password_error, confirmation_error = confirmation_error, email_error = email_error, username= username, email= email)
+        return template.render(username_error = username_error, password_error = password_error, confirmation_error = confirmation_error, email_error = email_error, username= username, email= email)
 
     
 
